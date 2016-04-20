@@ -3,8 +3,9 @@ import ACTIONS from './list';
 const API = 'https://ecs.aliyuncs.com/';
 
 export default class ECS extends BASE {
-  constructor(options, actions = ACTIONS) {
+  constructor(options, acts = ACTIONS) {
     super(options);
+    const actions = typeof acts === 'string' ? [acts] : acts;
     actions.forEach(action => {
       this[action] = this[action.replace(/(\w)/, v => v.toLowerCase())] = async(opts) => {
         this.params = Object.assign({Action: action}, BASE.options, opts);

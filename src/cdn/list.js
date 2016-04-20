@@ -60,5 +60,5 @@ module.exports = [
   'DescribeDomainFileSizeProportionData',
   'DescribeDomainCCData',
   'DescribeCdnDomainLogs',
-  'DescribeIpInfo',
+  'DescribeIpInfo'
 ];

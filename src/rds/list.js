@@ -65,5 +65,5 @@ module.exports = [
   'CancelImport',
   'DescribeSQLLogReports',
   'DescribeSQLLogRecords',
-  'DescribeOptimizeAdviceOnMissIndex',
+  'DescribeOptimizeAdviceOnMissIndex'
 ];
