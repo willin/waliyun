@@ -61,10 +61,13 @@ ES6:
 ```js
 import {ECS} from 'waliyun';
 const ecs = ECS(options);
-const instances = await ecs.describeInstances({
-  RegionId: 'cn-hangzhou'
+// Within Async Func
+(async() => {
+  const instances = await ecs.describeInstances({
+    RegionId: 'cn-hangzhou'
+  });
+  // xxxx
 });
-// xxxx
 ```
 
 ## 已支持的接口
