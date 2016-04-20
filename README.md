@@ -22,6 +22,12 @@ Minimum, Flexible, Scalable.
 
 ## 安装和使用
 
+国际惯例：
+
+```
+npm install waliyun --save
+```
+
 公共参数：
 
 ```js
