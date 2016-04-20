@@ -14,7 +14,15 @@
   },
   "keywords": [
     "api",
-    "coding"
+    "aliyun",
+    "sdk",
+    "open",
+    "open-api",
+    "ecs",
+    "oss",
+    "sts",
+    "rds",
+    "cdn"
   ],
   "author": "Willin Wang",
   "license": "MIT",
@@ -35,8 +43,5 @@
   },
   "dependencies": {
     "request": "^2.69.0"
-  },
-  "optionalDependencies": {
-    "cheerio": "^0.20.0"
   }
 }
