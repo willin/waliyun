@@ -121,7 +121,7 @@ API文档参考： <https://help.aliyun.com/document_detail/httpdns/openapi/summ
 
 API文档参考： <https://help.aliyun.com/document_detail/iot/API/call-method/summary.html>
 
-### 云监控 Metrics
+### 云监控 METRICS
 
 API文档参考： <https://help.aliyun.com/document_detail/cms/API_References/New_Metric_OpenAPI_Reference/API_Guide.html>
 
