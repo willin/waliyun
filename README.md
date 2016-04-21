@@ -1,5 +1,7 @@
 # WAliyun
 
+[![npm](https://img.shields.io/npm/v/waliyun.svg?style=plastic)](https://npmjs.org/package/waliyun) [![npm](https://img.shields.io/npm/dm/waliyun.svg?style=plastic)](https://npmjs.org/package/waliyun)
+
 Minimum, Flexible, Scalable.
 
 支持Lazy Require。
