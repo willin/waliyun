@@ -61,11 +61,11 @@ ES5:
 ```js
 var WALIYUN = require('waliyun');
 // 加载全部方法
-var ecs = WALIYUN.ECS(options);
+var ecs = new WALIYUN.ECS(options);
 // 或加载某些方法
-var ecs = WALIYUN.ECS(options, ['DescribeInstances', 'DescribeInstanceStatus']);
+var ecs = new WALIYUN.ECS(options, ['DescribeInstances', 'DescribeInstanceStatus']);
 // 或加载某个方法
-var ecs = WALIYUN.ECS(options, 'DescribeInstances');
+var ecs = new WALIYUN.ECS(options, 'DescribeInstances');
 ecs.describeInstances({
   RegionId: 'cn-hangzhou'
 }).then(function(instances){
@@ -77,7 +77,7 @@ ES6:
 
 ```js
 import {ECS} from 'waliyun';
-const ecs = ECS(options);
+const ecs = new ECS(options);
 // Within Async Func
 (async() => {
   const instances = await ecs.describeInstances({
