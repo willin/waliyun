@@ -40,6 +40,7 @@ var options = {
   SignatureMethod: 'HMAC-SHA1',
   Format: 'json',
   SignatureVersion: '1.0',
+  // 每次请求都会自动重新生成
   SignatureNonce: Math.random(),
   Timestamp: new Date().toISOString()
 };
