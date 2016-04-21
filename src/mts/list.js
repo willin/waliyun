@@ -1,0 +1,27 @@
+// https://help.aliyun.com/document_detail/mts/api-reference/intro/intro.html
+module.exports = [
+  'SubmitMediaInfoJob',
+  'QueryMediaInfoJobList',
+  'SubmitAnalysisJob',
+  'QueryAnalysisJobList',
+  'SubmitJobs',
+  'CancelJob',
+  'QueryJobList',
+  'SearchJob',
+  'QueryJobListByPid',
+  'SubmitSnapshotJob',
+  'QuerySnapshotJobList',
+  'UpdatePipeline',
+  'QueryPipelineList',
+  'SearchPipeline',
+  'AddTemplate',
+  'UpdateTemplate',
+  'QueryTemplateList',
+  'SearchTemplate',
+  'DeleteTemplate',
+  'AddWaterMarkTemplate',
+  'UpdateWaterMarkTemplate',
+  'QueryWaterMarkTemplateList',
+  'SearchWaterMarkTemplate',
+  'DeleteWaterMarkTemplate'
+];

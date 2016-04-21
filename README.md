@@ -93,6 +93,10 @@ API文档参考： <https://help.aliyun.com/document_detail/cdn/api-reference/ov
 
 API文档参考： <https://help.aliyun.com/document_detail/mobilepush/api-reference/openapi.html>
 
+### 容器服务 CS
+
+API文档参考： <https://help.aliyun.com/document_detail/containerservice/api-reference/overview.html>
+
 ### 分布式关系型数据库 DRDS
 
 API文档参考： <https://help.aliyun.com/document_detail/drds/open-api/user_open_api.html>
@@ -109,9 +113,17 @@ API文档参考： <https://help.aliyun.com/document_detail/ess/api-document/api
 
 API文档参考： <https://help.aliyun.com/document_detail/httpdns/openapi/summary.html>
 
+### 阿里云物联网套件 IOT
+
+API文档参考： <https://help.aliyun.com/document_detail/iot/API/call-method/summary.html>
+
 ### 云监控 Metrics
 
 API文档参考： <https://help.aliyun.com/document_detail/cms/API_References/New_Metric_OpenAPI_Reference/API_Guide.html>
+
+### 媒体转码 MTS
+
+API文档参考： <https://help.aliyun.com/document_detail/mts/api-reference/intro/intro.html>
 
 ### 访问控制 RAM
 
@@ -120,6 +132,10 @@ API文档参考： <https://help.aliyun.com/document_detail/ram/ram-api-referenc
 ### 云数据库 RDS
 
 API文档参考： <https://help.aliyun.com/document_detail/rds/OpenAPI-manual/RDS-OpenAPI-Invoke/API-catalog.html>
+
+### 负载均衡 SLB
+
+API文档参考： <https://help.aliyun.com/document_detail/slb/api-reference/api-overview.html>
 
 ### 访问控制 STS
 
