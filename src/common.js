@@ -46,17 +46,38 @@ const _getSignature = (params, secret, method = 'get') => {
 
 import request from 'request';
 
-exports.getUrl = (host, params = {}, secret, method = 'get') => {
+exports.sendRequest = (host, params = {}, secret, method = 'get') => {
   const signature = _getSignature(params, secret, method);
-  const query = Object.keys(params).sort().map(key => `${_escape(key)}=${_escape(params[key])}`).join('&');
-  const url = `${host}?${query}&Signature=${signature}`;
-  debug('common')(url);
   const deferred = getDefer();
-  request.get(url, (err, res) => {
-    if (err) {
-      deferred.reject(err);
-    }
-    deferred.resolve(JSON.parse(res.body));
-  });
+  if (method === 'get') {
+    const query = Object.keys(params).sort().map(key => `${_escape(key)}=${_escape(params[key])}`).join('&');
+    const url = `${host}?${query}&Signature=${signature}`;
+    debug('common')('GET %s', url);
+    request.get(url, (err, res) => {
+      if (err) {
+        deferred.reject(err);
+      }
+      deferred.resolve(JSON.parse(res.body));
+    });
+  } else {
+    params.Signature = signature;
+    debug('common')('%s %s', method.toUpperCase(), host);
+    request({
+      method: method.toUpperCase(),
+      url: host,
+      headers: [
+        {
+          name: 'content-type',
+          value: 'application/x-www-form-urlencoded'
+        }
+      ],
+      form: params
+    }, (err, res) => {
+      if (err) {
+        deferred.reject(err);
+      }
+      deferred.resolve(JSON.parse(res.body));
+    });
+  }
   return deferred.promise;
 };
