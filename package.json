@@ -22,7 +22,9 @@
     "oss",
     "sts",
     "rds",
-    "cdn"
+    "cdn",
+    "drds",
+    "dns"
   ],
   "author": "Willin Wang",
   "license": "MIT",
