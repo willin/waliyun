@@ -26,6 +26,7 @@ Minimum, Flexible, Scalable.
   - [云数据库 RDS](#%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93-rds)
   - [负载均衡 SLB](#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1-slb)
   - [访问控制 STS](#%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6-sts)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -50,7 +51,7 @@ var options = {
   SignatureMethod: 'HMAC-SHA1',
   Format: 'json',
   SignatureVersion: '1.0',
-  // 每次请求都会自动重新生成
+  // 不填，每次请求都会自动重新生成
   SignatureNonce: Math.random(),
   Timestamp: new Date().toISOString()
 };
@@ -144,3 +145,45 @@ API文档参考： <https://help.aliyun.com/document_detail/slb/api-reference/ap
 ### 访问控制 STS
 
 API文档参考： <https://help.aliyun.com/document_detail/ram/sts-api-reference/intro.html>
+
+ES5示例:
+
+```js
+var WALIYUN = require('waliyun');
+var sts = new WALIYUN.STS({
+  AccessKeyId: 'xxxx',
+  AccessKeySecret: 'xxxx',
+  Version: '2015-04-01'
+});
+sts.AssumeRole({
+  RoleArn: 'acs:ram::xxxx:role/xxxx',
+  RoleSessionName: 'xxxxx'
+},'post').then(function(token){
+  // xxxx
+});
+```
+
+ES6 示例：
+
+```js
+import {STS} from 'waliyun';
+
+const sts = new STS({
+  AccessKeyId: 'xxxx',
+  AccessKeySecret: 'xxxx',
+  Version: '2015-04-01'
+});
+
+(async() => {
+  const token = await sts.AssumeRole({
+    RoleArn: 'acs:ram::xxxx:role/xxxx',
+    RoleSessionName: 'xxxxx'
+  },'post');
+  // xxxx
+})();
+
+```
+
+## License
+
+MIT
