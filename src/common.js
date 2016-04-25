@@ -1,5 +1,3 @@
-import debug from 'debug';
-
 const DEFAULTS = {
   AccessKeyId: '',
   // Signature: '',
@@ -37,10 +35,8 @@ const _escape = str => encodeURIComponent(str).replace(/\*/g, '%2A');
 const _getSignature = (params, secret, method = 'get') => {
   const canoQuery = Object.keys(params).sort().map(key => `${_escape(key)}=${_escape(params[key])}`).join('&');
   const stringToSign = `${method.toUpperCase()}&${_escape('/')}&${_escape(canoQuery)}`;
-  debug('common')(stringToSign);
   let signature = crypto.createHmac('sha1', `${secret}&`);
   signature = signature.update(stringToSign).digest('base64');
-  debug('common')(signature);
   return signature;
 };
 
@@ -52,7 +48,6 @@ exports.sendRequest = (host, params = {}, secret, method = 'get') => {
   if (method === 'get') {
     const query = Object.keys(params).sort().map(key => `${_escape(key)}=${_escape(params[key])}`).join('&');
     const url = `${host}?${query}&Signature=${signature}`;
-    debug('common')('GET %s', url);
     request.get(url, (err, res) => {
       if (err) {
         deferred.reject(err);
@@ -61,7 +56,6 @@ exports.sendRequest = (host, params = {}, secret, method = 'get') => {
     });
   } else {
     params.Signature = signature;
-    debug('common')('%s %s', method.toUpperCase(), host);
     request({
       method: method.toUpperCase(),
       url: host,
