@@ -142,7 +142,7 @@ API文档参考： <https://help.aliyun.com/document_detail/iot/API/call-method/
 
 ### 云监控 METRICS
 
-API文档参考： <https://help.aliyun.com/document_detail/cms/API_References/New_Metric_OpenAPI_Reference/API_Guide.html>
+API文档参考： <https://help.aliyun.com/document_detail/28616.html>
 
 ES7 示例：
 
