@@ -74,7 +74,7 @@ ecs.describeInstances({
 });
 ```
 
-ES6:
+ES7:
 
 ```js
 import {ECS} from 'waliyun';
@@ -109,6 +109,24 @@ API文档参考： <https://help.aliyun.com/document_detail/drds/open-api/user_o
 ### 云服务器 ECS
 
 API文档参考： <https://help.aliyun.com/document_detail/ecs/open-api/apisummary.html>
+
+ES7 示例:
+
+```js
+import {ECS} from 'waliyun';
+
+(async() => {
+  const ces = new ECS({
+    AccessKeyId: 'xxxx',
+    AccessKeySecret: 'xxxx',
+    Version: '2014-05-26'
+  });
+  const data = await ces.describeInstances({
+    RegionId: 'cn-hangzhou'
+  });
+  console.log(data.Instances.Instance);
+})();
+```
 
 ### 弹性伸缩 ESS
 
@@ -163,7 +181,7 @@ sts.AssumeRole({
 });
 ```
 
-ES6 示例：
+ES7 示例：
 
 ```js
 import {STS} from 'waliyun';
