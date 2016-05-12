@@ -147,7 +147,7 @@ API文档参考： <https://help.aliyun.com/document_detail/cms/API_References/N
 ES7 示例：
 
 ```js
-import {METRICS} from './src';
+import {METRICS} from 'waliyun';
 
 (async() => {
   const metrics = new METRICS({
