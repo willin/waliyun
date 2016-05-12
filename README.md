@@ -144,6 +144,29 @@ API文档参考： <https://help.aliyun.com/document_detail/iot/API/call-method/
 
 API文档参考： <https://help.aliyun.com/document_detail/cms/API_References/New_Metric_OpenAPI_Reference/API_Guide.html>
 
+ES7 示例：
+
+```js
+import {METRICS} from './src';
+
+(async() => {
+  const metrics = new METRICS({
+    AccessKeyId: 'xxxxxx',
+    AccessKeySecret: 'xxxxxx',
+    Version: '2015-10-20',
+    RegionId: 'cn-hangzhou'
+  });
+  const data = await metrics.queryMetric({
+    Project: 'acs_rds',
+    Metric: 'CpuUsage',
+    Period: '300',
+    StartTime: new Date() - 60 * 1000 * 1000,
+    Dimensions: '{instanceId:\'xxxxxx\'}'
+  });
+  console.log(data.Datapoints);
+})();
+```
+
 ### 媒体转码 MTS
 
 API文档参考： <https://help.aliyun.com/document_detail/mts/api-reference/intro/intro.html>

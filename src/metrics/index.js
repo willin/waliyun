@@ -1,6 +1,6 @@
 import {BASE, sendRequest} from '../common';
 import ACTIONS from './list';
-const API = 'https://metrics.aliyuncs.com/';
+const API = 'http://metrics.aliyuncs.com/';
 
 export default class METRICS extends BASE {
   constructor(options, acts = ACTIONS) {

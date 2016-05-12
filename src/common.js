@@ -31,7 +31,7 @@ const getDefer = exports.getDefer = () => {
 };
 
 import crypto from 'crypto';
-const _escape = str => encodeURIComponent(str).replace(/\*/g, '%2A');
+const _escape = str => encodeURIComponent(str).replace(/\*/g, '%2A').replace(/\'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29');
 const _getSignature = (params, secret, method = 'get') => {
   const canoQuery = Object.keys(params).sort().map(key => `${_escape(key)}=${_escape(params[key])}`).join('&');
   const stringToSign = `${method.toUpperCase()}&${_escape('/')}&${_escape(canoQuery)}`;
