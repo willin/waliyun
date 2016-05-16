@@ -1,3 +1,5 @@
+import debug from 'debug';
+
 const DEFAULTS = {
   AccessKeyId: '',
   // Signature: '',
@@ -31,13 +33,13 @@ const getDefer = exports.getDefer = () => {
 };
 
 import crypto from 'crypto';
-const escaper = str => encodeURIComponent(str).replace(/\*/g, '%2A').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29');
+const escaper = str => encodeURIComponent(str).replace(/\*/g, '%2A').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\+/, '%2b');
 const getSignature = (params, secret, method = 'get') => {
   const canoQuery = Object.keys(params).sort().map(key => `${escaper(key)}=${escaper(params[key])}`).join('&');
   const stringToSign = `${method.toUpperCase()}&${escaper('/')}&${escaper(canoQuery)}`;
   let signature = crypto.createHmac('sha1', `${secret}&`);
   signature = signature.update(stringToSign).digest('base64');
-  return signature;
+  return escaper(signature);
 };
 
 import request from 'request';
@@ -48,6 +50,7 @@ exports.sendRequest = (host, params = {}, secret, {method = 'get', timeout = 500
   if (method === 'get') {
     const query = Object.keys(params).sort().map(key => `${escaper(key)}=${escaper(params[key])}`).join('&');
     const url = `${host}?${query}&Signature=${signature}`;
+    debug('waliyun:common:url')(url);
     request.get(url, {timeout: parseInt(timeout, 10)}, (err, res) => {
       if (err) {
         deferred.reject(err);
@@ -56,6 +59,7 @@ exports.sendRequest = (host, params = {}, secret, {method = 'get', timeout = 500
     });
   } else {
     params.Signature = signature;
+    debug('waliyun:common:params')(params);
     request({
       method: method.toUpperCase(),
       url: host,
