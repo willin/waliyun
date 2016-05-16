@@ -1,10 +1,14 @@
 # WAliyun
 
+比官方SDK更好用的阿里云SDK。
+
 [![npm](https://img.shields.io/npm/v/waliyun.svg?style=plastic)](https://npmjs.org/package/waliyun) [![npm](https://img.shields.io/npm/dm/waliyun.svg?style=plastic)](https://npmjs.org/package/waliyun)
 
 Minimum, Flexible, Scalable.
 
 支持Lazy Require。
+
+> 2016-05-16 解决了签名偶发错误的问题。
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
