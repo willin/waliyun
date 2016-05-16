@@ -31,10 +31,10 @@ const getDefer = exports.getDefer = () => {
 };
 
 import crypto from 'crypto';
-const _escape = str => encodeURIComponent(str).replace(/\*/g, '%2A').replace(/\'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29');
-const _getSignature = (params, secret, method = 'get') => {
-  const canoQuery = Object.keys(params).sort().map(key => `${_escape(key)}=${_escape(params[key])}`).join('&');
-  const stringToSign = `${method.toUpperCase()}&${_escape('/')}&${_escape(canoQuery)}`;
+const escaper = str => encodeURIComponent(str).replace(/\*/g, '%2A').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29');
+const getSignature = (params, secret, method = 'get') => {
+  const canoQuery = Object.keys(params).sort().map(key => `${escaper(key)}=${escaper(params[key])}`).join('&');
+  const stringToSign = `${method.toUpperCase()}&${escaper('/')}&${escaper(canoQuery)}`;
   let signature = crypto.createHmac('sha1', `${secret}&`);
   signature = signature.update(stringToSign).digest('base64');
   return signature;
@@ -42,13 +42,13 @@ const _getSignature = (params, secret, method = 'get') => {
 
 import request from 'request';
 
-exports.sendRequest = (host, params = {}, secret, method = 'get') => {
-  const signature = _getSignature(params, secret, method);
+exports.sendRequest = (host, params = {}, secret, {method = 'get', timeout = 5000} = {}) => {
+  const signature = getSignature(params, secret, method);
   const deferred = getDefer();
   if (method === 'get') {
-    const query = Object.keys(params).sort().map(key => `${_escape(key)}=${_escape(params[key])}`).join('&');
+    const query = Object.keys(params).sort().map(key => `${escaper(key)}=${escaper(params[key])}`).join('&');
     const url = `${host}?${query}&Signature=${signature}`;
-    request.get(url, (err, res) => {
+    request.get(url, {timeout: parseInt(timeout, 10)}, (err, res) => {
       if (err) {
         deferred.reject(err);
       }
@@ -65,6 +65,7 @@ exports.sendRequest = (host, params = {}, secret, method = 'get') => {
           value: 'application/x-www-form-urlencoded'
         }
       ],
+      timeout: parseInt(timeout, 10),
       form: params
     }, (err, res) => {
       if (err) {
