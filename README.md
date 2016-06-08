@@ -3,6 +3,7 @@
 比官方SDK更好用的阿里云SDK。
 
 [![npm](https://img.shields.io/npm/v/waliyun.svg?style=plastic)](https://npmjs.org/package/waliyun) [![npm](https://img.shields.io/npm/dm/waliyun.svg?style=plastic)](https://npmjs.org/package/waliyun)
+[![npm](https://img.shields.io/npm/dt/waliyun.svg?style=plastic)](https://npmjs.org/package/waliyun)
 
 Minimum, Flexible, Scalable.
 
