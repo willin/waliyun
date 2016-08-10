@@ -1,6 +1,6 @@
 {
   "name": "waliyun",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "ALL Aliyun APIs",
   "main": "dist/index.js",
   "scripts": {
@@ -46,8 +46,8 @@
     "eslint-plugin-import": "^1.12.0"
   },
   "dependencies": {
-    "babel-runtime": "^6.6.1",
-    "debug": "^2.2.0",
-    "request": "^2.69.0"
+    "babel-runtime": "*",
+    "debug": "*",
+    "request": "*"
   }
 }

@@ -9,5 +9,6 @@ module.exports = [
   'DeviceRevokeById',
   'DeviceRevokeByTopic',
   'DevicePermitModify',
-  'ListDevicePermits'
+  'ListDevicePermits',
+  'RegistDevice'
 ];
