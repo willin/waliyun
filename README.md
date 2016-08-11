@@ -145,6 +145,26 @@ API文档参考： <https://help.aliyun.com/document_detail/httpdns/openapi/summ
 
 API文档参考： <https://help.aliyun.com/document_detail/iot/API/call-method/summary.html>
 
+ES7 示例：
+
+```js
+import {IOT} from 'waliyun';
+
+(async() => {
+  const iot = new IOT({
+    AccessKeyId: 'xxxx',
+    AccessKeySecret: 'xxxxx',
+    Version: '2016-05-30'
+  });
+  const data = await iot.sub({
+    ProductKey: 'xxxx',
+    SubCallback: 'http://xxxx:xxx/',
+    'Topic.1': '/ProductKey/Topic'
+  });
+  console.log(data);
+})();
+```
+
 ### 云监控 METRICS
 
 API文档参考： <https://help.aliyun.com/document_detail/28616.html>
