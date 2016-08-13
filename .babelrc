@@ -4,6 +4,7 @@
     "stage-1"
   ],
   "plugins": [
+    "proxy",
     "transform-runtime"
   ]
 }
