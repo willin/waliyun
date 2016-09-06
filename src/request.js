@@ -27,7 +27,6 @@ const getSignature = (params, secret, method = 'get') => {
   const stringToSign = `${method.toUpperCase()}&${escaper('/')}&${escaper(canoQuery)}`;
   let signature = crypto.createHmac('sha1', `${secret}&`);
   signature = signature.update(stringToSign).digest('base64');
-  console.log(escaper(signature));
   return escaper(signature);
 };
 
