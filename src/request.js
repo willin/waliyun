@@ -1,29 +1,12 @@
 import debug from 'debug';
-
-const DEFAULTS = {
-  AccessKeyId: '',
-  // Signature: '',
-  SignatureMethod: 'HMAC-SHA1',
-  Format: 'json',
-  Version: '2014-05-26',
-  SignatureVersion: '1.0',
-  SignatureNonce: Math.random(),
-  Timestamp: new Date().toISOString()
-};
-
-export class BASE {
-  constructor(options) {
-    BASE.options = Object.assign({}, DEFAULTS, options);
-    BASE.secret = BASE.options.AccessKeySecret;
-    delete BASE.options.AccessKeySecret;
-  }
-}
+import crypto from 'crypto';
+import request from 'request';
 
 /**
  * getDefer
  * @return {object} deferred
  */
-const getDefer = exports.getDefer = () => {
+const getDefer = () => {
   const deferred = {};
   deferred.promise = new Promise((resolve, reject) => {
     deferred.resolve = resolve;
@@ -32,19 +15,34 @@ const getDefer = exports.getDefer = () => {
   return deferred;
 };
 
-import crypto from 'crypto';
-const escaper = str => encodeURIComponent(str).replace(/\*/g, '%2A').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\+/, '%2b');
+const escaper = str => encodeURIComponent(str)
+  .replace(/\*/g, '%2A')
+  .replace(/'/g, '%27')
+  .replace(/\(/g, '%28')
+  .replace(/\)/g, '%29')
+  .replace(/\+/, '%2B');
+
 const getSignature = (params, secret, method = 'get') => {
   const canoQuery = Object.keys(params).sort().map(key => `${escaper(key)}=${escaper(params[key])}`).join('&');
   const stringToSign = `${method.toUpperCase()}&${escaper('/')}&${escaper(canoQuery)}`;
   let signature = crypto.createHmac('sha1', `${secret}&`);
   signature = signature.update(stringToSign).digest('base64');
+  console.log(escaper(signature));
   return escaper(signature);
 };
 
-import request from 'request';
+module.exports = (host, params = {}, timeout = 5000) => {
+  let method = 'get';
+  if (params.method) {
+    method = params.method;
+    delete params.method;
+  }
+  const secret = params.AccessKeySecret;
+  delete params.AccessKeySecret;
 
-exports.sendRequest = (host, params = {}, secret, {method = 'get', timeout = 5000} = {}) => {
+  params.SignatureNonce = Math.random();
+  params.Timestamp = new Date().toISOString();
+
   const signature = getSignature(params, secret, method);
   const deferred = getDefer();
   if (method === 'get') {
