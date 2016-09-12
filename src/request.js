@@ -52,7 +52,11 @@ module.exports = (host, params = {}, timeout = 5000) => {
       if (err) {
         deferred.reject(err);
       }
-      deferred.resolve(JSON.parse(res.body));
+      try {
+        deferred.resolve(JSON.parse(res.body));
+      } catch (e) {
+        deferred.reject(err);
+      }
     });
   } else {
     params.Signature = signature;
@@ -72,7 +76,11 @@ module.exports = (host, params = {}, timeout = 5000) => {
       if (err) {
         deferred.reject(err);
       }
-      deferred.resolve(JSON.parse(res.body));
+      try {
+        deferred.resolve(JSON.parse(res.body));
+      } catch (e) {
+        deferred.reject(err);
+      }
     });
   }
   return deferred.promise;
