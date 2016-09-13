@@ -1,6 +1,6 @@
 {
   "name": "waliyun",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "ALL Aliyun APIs",
   "main": "dist/index.js",
   "scripts": {
@@ -49,7 +49,6 @@
   "dependencies": {
     "babel-runtime": "*",
     "debug": "*",
-    "node-proxy": "^1.0.0",
     "request": "*"
   }
 }
