@@ -3,7 +3,6 @@
     "node": true,
     "es6": true
   },
-  "parser": "babel-eslint",
   "rules": {
     "quotes": [2, "single"],
     "semi": 2,

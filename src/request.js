@@ -1,6 +1,6 @@
-import debug from 'debug';
-import crypto from 'crypto';
-import request from 'request';
+const debug = require('debug');
+const crypto = require('crypto');
+const request = require('request');
 
 /**
  * getDefer

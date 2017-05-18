@@ -1,12 +1,15 @@
 {
   "name": "waliyun",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "ALL Aliyun APIs",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "npm run compile",
     "compile": "./node_modules/.bin/babel src --out-dir dist",
     "prepublish": "npm run compile"
+  },
+  "engines": {
+    "node": ">= 7.6.0"
   },
   "repository": {
     "type": "git",
@@ -26,7 +29,8 @@
     "drds",
     "dns",
     "monitor",
-    "iot"
+    "iot",
+    "sms"
   ],
   "author": "Willin Wang",
   "license": "MIT",
@@ -35,19 +39,11 @@
   },
   "homepage": "https://github.com/willin/waliyun#readme",
   "devDependencies": {
-    "babel-cli": "*",
-    "babel-eslint": "*",
-    "babel-plugin-proxy": "*",
-    "babel-plugin-transform-runtime": "*",
-    "babel-preset-es2015": "*",
-    "babel-preset-es2015-loose": "*",
-    "babel-preset-stage-1": "*",
     "eslint": "*",
     "eslint-config-airbnb": "*",
     "eslint-plugin-import": "*"
   },
   "dependencies": {
-    "babel-runtime": "*",
     "debug": "*",
     "request": "*"
   }

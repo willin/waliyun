@@ -1,6 +1,6 @@
-import request from './request';
+const request = require('./request');
 
-const SDKS = ['cdn', 'cloudpush', 'cs', 'drds', 'ecs', 'ess', 'httpdns', 'iot', 'metrics', 'mts', 'ram', 'rds', 'slb', 'sts'];
+const SDKS = ['cdn', 'cloudpush', 'cs', 'dm', 'drds', 'ecs', 'ess', 'httpdns', 'iot', 'metrics', 'mts', 'ram', 'rds', 'slb', 'sts', 'sms'];
 
 const DEFAULTS = {
   AccessKeyId: '',
@@ -35,5 +35,6 @@ const lazyLoad = (service) => (options) => {
 };
 
 SDKS.forEach((item) => {
+  exports[item] = lazyLoad(item);
   exports[item.toUpperCase()] = lazyLoad(item);
 });
