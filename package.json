@@ -4,9 +4,6 @@
   "description": "ALL Aliyun APIs",
   "main": "src/index.js",
   "scripts": {
-    "start": "npm run compile",
-    "compile": "./node_modules/.bin/babel src --out-dir dist",
-    "prepublish": "npm run compile"
   },
   "engines": {
     "node": ">= 7.6.0"
