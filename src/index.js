@@ -1,6 +1,6 @@
 const request = require('./request');
 
-const SDKS = ['cdn', 'cloudpush', 'cs', 'dm', 'drds', 'ecs', 'ess', 'httpdns', 'iot', 'metrics', 'mts', 'ram', 'rds', 'slb', 'sts', 'sms'];
+const SDKS = ['cdn', 'cloudpush', 'cs', 'dm', 'drds', 'ecs', 'ess', 'httpdns', 'iot', 'metrics', 'mts', 'ram', 'rds', 'slb', 'sts', 'sms', 'dysms'];
 
 const DEFAULTS = {
   AccessKeyId: '',
