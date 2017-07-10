@@ -24,7 +24,7 @@ const lazyLoad = (service) => (options) => {
           return settings.version;
         }
         let params = Object.assign({}, DEFAULTS, options);
-        params = Object.assign({Action: property}, params, opts);
+        params = Object.assign({ Action: property }, params, opts);
         params.method = settings.actions[action] || 'get';
         if (params.Version === undefined) {
           params.Version = settings.version;

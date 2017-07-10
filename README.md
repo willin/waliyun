@@ -18,9 +18,9 @@ Minimum, Flexible, Scalable.
 - [已支持的接口](#%E5%B7%B2%E6%94%AF%E6%8C%81%E7%9A%84%E6%8E%A5%E5%8F%A3)
   - [CDN](#cdn)
   - [移动推送 CLOUDPUSH](#%E7%A7%BB%E5%8A%A8%E6%8E%A8%E9%80%81-cloudpush)
-  - [邮件服务 DM](#%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1-dm)
+  - [邮件推送 DM](#%E9%82%AE%E4%BB%B6%E6%8E%A8%E9%80%81-dm)
   - [短信服务 SMS](#%E7%9F%AD%E4%BF%A1%E6%9C%8D%E5%8A%A1-sms)
-  - [新短信服务 SMS](#%E6%96%B0%E7%9F%AD%E4%BF%A1%E6%9C%8D%E5%8A%A1+sms)
+  - [新短信服务 DYSMS](#%E6%96%B0%E7%9F%AD%E4%BF%A1%E6%9C%8D%E5%8A%A1-dysms)
   - [分布式关系型数据库 DRDS](#%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93-drds)
   - [云服务器 ECS](#%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8-ecs)
   - [弹性伸缩 ESS](#%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9-ess)
@@ -166,7 +166,7 @@ sms.singleSendSMS({
 });
 ```
 
-### 新短信服务 SMS
+### 新短信服务 DYSMS
 
 API文档参考： https://help.aliyun.com/document_detail/56189.html
 

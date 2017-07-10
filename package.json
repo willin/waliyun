@@ -1,9 +1,10 @@
 {
   "name": "waliyun",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "ALL Aliyun APIs",
   "main": "src/index.js",
   "scripts": {
+    "test": "doctoc README.md"
   },
   "engines": {
     "node": ">= 7.6.0"
@@ -36,9 +37,9 @@
   },
   "homepage": "https://github.com/willin/waliyun#readme",
   "devDependencies": {
-    "eslint": "*",
-    "eslint-config-airbnb": "*",
-    "eslint-plugin-import": "*"
+    "doctoc": "*",
+    "eslint": "^4.2.0",
+    "eslint-config-dwing": "^1.1.0"
   },
   "dependencies": {
     "debug": "*",

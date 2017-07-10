@@ -48,7 +48,7 @@ module.exports = (host, params = {}, timeout = 5000) => {
     const query = Object.keys(params).sort().map(key => `${escaper(key)}=${escaper(params[key])}`).join('&');
     const url = `${host}?${query}&Signature=${signature}`;
     debug('waliyun:common:url')(url);
-    request.get(url, {timeout: parseInt(timeout, 10)}, (err, res) => {
+    request.get(url, { timeout: parseInt(timeout, 10) }, (err, res) => {
       if (err) {
         deferred.reject(err);
       }
