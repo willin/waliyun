@@ -185,7 +185,7 @@ sms.sendSms({
   PhoneNumbers: mobileNo,
   SignName: '您的签名',
   TemplateCode: 'SMS_77778888'
-}）
+})
 ```
 
 ### 分布式关系型数据库 DRDS
