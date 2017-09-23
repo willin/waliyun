@@ -218,6 +218,10 @@ import {ECS} from 'waliyun';
 
 API文档参考： <https://help.aliyun.com/document_detail/25925.html>
 
+### ALIDNS
+
+API文档参考： <https://help.aliyun.com/document_detail/29739.html>
+
 ### HTTPDNS
 
 API文档参考： <https://help.aliyun.com/document_detail/30122.html>
