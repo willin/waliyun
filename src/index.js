@@ -16,6 +16,7 @@ const DEFAULTS = {
 const lazyLoad = (service) => (options) => {
   /* eslint global-require:0 */
   const settings = require(`./settings/${service}`);
+  settings.api = options.Api || settings.api
   return new Proxy({}, {
     get: (target, property) =>
       (opts) => {
