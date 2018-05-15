@@ -1,6 +1,6 @@
 const request = require('./request');
 
-const SDKS = ['alidns', 'cdn', 'cloudpush', 'cs', 'dm', 'drds', 'ecs', 'ess', 'httpdns', 'iot', 'metrics', 'mts', 'ram', 'rds', 'slb', 'sts', 'sms', 'dysms'];
+const SDKS = ['alidns', 'cdn', 'cloudpush', 'cs', 'dm', 'drds', 'ecs', 'ess', 'httpdns', 'iot', 'metrics', 'mts', 'ram', 'rds', 'slb', 'sts', 'sms', 'dysms', 'dyvms'];
 
 const DEFAULTS = {
   AccessKeyId: '',
@@ -16,7 +16,7 @@ const DEFAULTS = {
 const lazyLoad = (service) => (options) => {
   /* eslint global-require:0 */
   const settings = require(`./settings/${service}`);
-  settings.api = options.Api || settings.api
+  settings.api = options.Api || settings.api;
   return new Proxy({}, {
     get: (target, property) =>
       (opts) => {

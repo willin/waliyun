@@ -1,6 +1,6 @@
 {
   "name": "waliyun",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "ALL Aliyun APIs",
   "main": "src/index.js",
   "scripts": {
